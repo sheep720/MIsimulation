@@ -11,9 +11,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' sim_MAR <- function(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
+#' sim_MAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
 #' }
-#' @importFrom stats var
+#' @importFrom stats var na.omit
 sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   S <- NSIM
   MAR_MethodA_Sum <- MAR_MethodA(n, NSIM, missRate, trueValue, cores)
@@ -22,21 +22,21 @@ sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   MAR_MethodD_Sum <- MAR_MethodD(n, NSIM, missRate, trueValue, cores)
   dat <- data.frame(MAR_MethodA_Sum$betaA, MAR_MethodB_Sum$betaB, MAR_MethodC_Sum$betaC, MAR_MethodD_Sum$betaD)
   datasetFull <- cbind(MAR_MethodA_Sum,MAR_MethodB_Sum,MAR_MethodC_Sum,MAR_MethodD_Sum)
-  MCmean <- apply(dat,2,mean)
+  MCmean <- c(mean(datasetFull$betaA, na.rm=TRUE), apply(dat,2,mean)[-1])
   MCbias <- MCmean-trueValue
   MCrelbias <- MCbias/trueValue
-  MCstddev <- sqrt(apply(dat,2,var))
-  MCMSE <- apply((dat-trueValue)^2,2,mean)
-  #   MCMSE <- MCbias^2 + MCstddev^2   # alternative lazy calculation
+  MCstddev <- c(var(na.omit(datasetFull$betaA)), sqrt(apply(dat,2,var))[-1])
+  #MCMSE <- apply((dat-trueValue)^2,2,mean)
+  MCMSE <- MCbias^2 + MCstddev^2   # alternative lazy calculation
   MCRE <- MCMSE[1]/MCMSE
   # meanBias
-  meanBias <- c(mean(datasetFull$meanBiasA),mean(datasetFull$meanBiasB),mean(datasetFull$meanBiasC),mean(datasetFull$meanBiasD))
+  meanBias <- c(mean(datasetFull$meanBiasA, na.rm=TRUE),mean(datasetFull$meanBiasB),mean(datasetFull$meanBiasC),mean(datasetFull$meanBiasD))
   # meanError
-  meanError <- c(mean(datasetFull$meanErrorA),mean(datasetFull$meanErrorB),mean(datasetFull$meanErrorC),mean(datasetFull$meanErrorD))
+  meanError <- c(mean(datasetFull$meanErrorA, na.rm=TRUE),mean(datasetFull$meanErrorB),mean(datasetFull$meanErrorC),mean(datasetFull$meanErrorD))
   # coverage
-  coverage <- c(mean(datasetFull$coverA),mean(datasetFull$coverB),mean(datasetFull$coverC),mean(datasetFull$coverD))
+  coverage <- c(mean(datasetFull$coverA, na.rm=TRUE),mean(datasetFull$coverB),mean(datasetFull$coverC),mean(datasetFull$coverD))
   # stdError
-  stdError <- c(mean(datasetFull$sdA),mean(datasetFull$sdB),mean(datasetFull$sdC),mean(datasetFull$sdD))
+  stdError <- c(mean(datasetFull$sdA, na.rm=TRUE),mean(datasetFull$sdB),mean(datasetFull$sdC),mean(datasetFull$sdD))
   sumdat <- rbind(rep(trueValue,4),S,MCmean,MCbias,MCrelbias,MCstddev,MCMSE,
                   MCRE,meanBias,meanError,coverage,stdError)
   names <- c("true value","# sims","MC mean","MC bias","MC relative bias",

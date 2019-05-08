@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' sim_MCAR <- function(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
+#' sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
 #' }
 #' @importFrom stats var
 sim_MCAR <- function(n, NSIM, missRate, trueValue, cores = 1){

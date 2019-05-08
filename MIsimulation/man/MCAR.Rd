@@ -7,9 +7,9 @@
 MCAR(missRate, full)
 }
 \arguments{
-\item{missRate}{the missing rate}
+\item{missRate}{the missing rate for each variable}
 
-\item{full}{the orignial dataset}
+\item{full}{the orignial true dataset}
 }
 \value{
 the simulated MCAR dataset

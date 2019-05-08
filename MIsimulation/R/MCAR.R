@@ -1,7 +1,7 @@
 #' @title Generate MCAR dataset
 #'
-#' @param missRate the missing rate
-#' @param full the orignial dataset
+#' @param missRate the missing rate for each variable
+#' @param full the orignial true dataset
 #'
 #' @return the simulated MCAR dataset
 #' @importFrom stats runif

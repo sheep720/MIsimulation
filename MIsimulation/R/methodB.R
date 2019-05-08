@@ -11,10 +11,13 @@
 #' @importFrom stats glm
 methodB <- function(dataset){
   temp <- dataset[!is.na(dataset$outcome),]
-  imp <- mice(temp, print = FALSE)
-  pred <- imp$predictorMatrix
-  pred[, "outcome"] <- 0
-  imp <- mice(temp, pred = pred)
+  #imp <- mice(temp, print = FALSE)
+  #pred <- imp$predictorMatrix
+  #pred[, "outcome"] <- 0
+  pred <- matrix(c(0,1,1,1,1,0,1,1,1,1,0,1,0,0,0,0),4,4)
+  rownames(pred) <- c('eTemp', 'X', 'treatment', 'outcome')
+  colnames(pred) <- c('eTemp', 'X', 'treatment', 'outcome')
+  imp <- mice(temp, predictorMatrix = pred)
   fit <- with(imp, glm( outcome~as.factor(treatment) + X + as.factor(treatment)*X ,family="binomial") )
   result <- summary(pool(fit))
   return(result)

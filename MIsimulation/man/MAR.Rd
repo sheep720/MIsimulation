@@ -7,7 +7,7 @@
 MAR(missRate, full)
 }
 \arguments{
-\item{missRate}{the missing rate}
+\item{missRate}{the missing rate for each variable}
 
 \item{full}{the orignial dataset}
 }

@@ -25,6 +25,6 @@ sim_MAR
 }
 \examples{
 \dontrun{
-sim_MAR <- function(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
+sim_MAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
 }
 }
