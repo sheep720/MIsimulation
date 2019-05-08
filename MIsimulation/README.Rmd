@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # MIsimulation
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/sheep720/MIsimulation.svg?branch=master)](https://travis-ci.com/sheep720/MIsimulation)
 <!-- badges: end -->
 
 The goal of MIsimulation is to ...
