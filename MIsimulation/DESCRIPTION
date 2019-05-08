@@ -1,0 +1,17 @@
+Package: MIsimulation
+Type: Package
+Title: BSTA 670 Final Project -- Replicate the Simulation Study in Kontopantelis and Evangelos (2017)  
+Version: 0.1.0
+Author: Mingyang Li <mingyli@pennmedicine.upenn.edu>
+Maintainer: Mingyang Li <mingyli@pennmedicine.upenn.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+Imports: stats, MASS, mice, parallel, microbenchmark
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
