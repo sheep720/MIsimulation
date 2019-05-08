@@ -1,3 +1,16 @@
+#' MAR_MethodD
+#'
+#' @param n sample size in each simulated dataset
+#' @param NSIM the number of simulation runs
+#' @param missRate the missing rate
+#' @param trueValue the true value of the parameter
+#' @param cores the number of cores for parallelization, defalut = 1
+#'
+#' @return the beta, betaSE, meanBias, meanError, cover for methodD
+#' @export
+#'
+#' @importFrom parallel makeCluster parLapply mclapply stopCluster
+#' @importFrom stats qnorm
 MAR_MethodD <- function(n, NSIM, missRate, trueValue, cores = 1){
   MAR_MethodD_Sum <- NULL
   simulation <- function(NSIM){

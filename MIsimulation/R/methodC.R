@@ -1,5 +1,14 @@
 # analysis methods
 # method C: no outcome imputation, outcome imputed in mi model
+#' @title method C: no outcome imputation, outcome imputed in mi model
+#'
+#' @param dataset the dataset for analysis
+#'
+#' @return the summary of the model fit
+#' @export
+#'
+#' @importFrom mice mice pool
+#' @importFrom stats glm
 methodC <- function(dataset){
   temp <- dataset[!is.na(dataset$outcome),]
   imp <- mice(temp)

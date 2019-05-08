@@ -1,4 +1,12 @@
 # MAR
+#' @title Generate MAR dataset
+#'
+#' @param missRate the missing rate
+#' @param full the orignial dataset
+#'
+#' @return the simulated MCAR dataset
+#' @importFrom stats runif
+#'
 MAR <- function(missRate, full){
   Simdat <- full
   if (missRate <= 0.5) {

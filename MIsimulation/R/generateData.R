@@ -1,5 +1,4 @@
 #' @title Generate the original data for simulation
-#' @description
 #'
 #' @param n the sample size in each simulated dataset
 #'
@@ -7,7 +6,6 @@
 #' @return the simulated dataset according to the settings in Kontopantelis and Evangelos (2017)
 #' @export
 #'
-#' @examples
 generateData <- function(n){
   # a binary exposure variable (treatment)
   # a continuous covariate X confounding the relationship between exposure and outcomes

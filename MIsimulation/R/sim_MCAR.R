@@ -1,3 +1,19 @@
+#' sim_MCAR
+#'
+#' @param n sample size in each simulated dataset
+#' @param NSIM the number of simulation runs
+#' @param missRate the missing rate
+#' @param trueValue the true value of the parameter
+#' @param cores the number of cores for parallelization, defalut = 1
+#'
+#' @return The summary simulation results
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' sim_MCAR <- function(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
+#' }
+#' @importFrom stats var
 sim_MCAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   S <- NSIM
   MCAR_MethodA_Sum <- MCAR_MethodA(n, NSIM, missRate, trueValue, cores)

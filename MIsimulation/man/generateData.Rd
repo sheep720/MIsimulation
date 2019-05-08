@@ -13,5 +13,5 @@ generateData(n)
 the simulated dataset according to the settings in Kontopantelis and Evangelos (2017)
 }
 \description{
-
+Generate the original data for simulation
 }

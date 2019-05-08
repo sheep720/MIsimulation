@@ -1,4 +1,17 @@
 # MCAR
+#' MCAR_MethodA
+#'
+#' @param n sample size in each simulated dataset
+#' @param NSIM the number of simulation runs
+#' @param missRate the missing rate
+#' @param trueValue the true value of the parameter
+#' @param cores the number of cores for parallelization, defalut = 1
+#'
+#' @return the beta, betaSE, meanBias, meanError, cover for methodA
+#' @export
+#'
+#' @importFrom parallel makeCluster parLapply mclapply stopCluster
+#' @importFrom stats qnorm
 MCAR_MethodA <- function(n, NSIM, missRate, trueValue, cores = 1){
   MCAR_MethodA_Sum <- NULL
   simulation <- function(NSIM){
