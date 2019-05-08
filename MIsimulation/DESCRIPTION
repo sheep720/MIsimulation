@@ -15,3 +15,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/sheep720/MIsimulation
+BugReports: https://github.com/sheep720/MIsimulation/issues
