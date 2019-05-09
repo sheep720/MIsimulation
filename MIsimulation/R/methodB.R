@@ -16,7 +16,7 @@ methodB <- function(dataset){
   # pred[, "outcome"] <- 0
   pred <- matrix(c(0,1,1,1,0,1,0,0,0),3,3)
   rownames(pred) <- c('X', 'treatment', 'outcome')
-  colnames(pred) <- c( 'X', 'treatment', 'outcome')
+  colnames(pred) <- c('X', 'treatment', 'outcome')
   imp <- mice(temp, predictorMatrix = pred)
   #fit <- with(imp, glm( outcome~as.factor(treatment) + X + as.factor(treatment)*X ,family="binomial") )
   #result <- summary(pool(fit))

@@ -25,6 +25,8 @@ sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   #MCmean <- c(mean(datasetFull$betaA, na.rm=TRUE), apply(dat,2,mean)[-1])
   #MCbias <- MCmean-trueValue
   #MCrelbias <- MCbias/trueValue
+  # #fail
+  fail <- c(sum(is.na(datasetFull$betaA)),sum(is.na(datasetFull$betaB)),sum(is.na(datasetFull$betaC)),sum(is.na(datasetFull$betaD)))
   # meanBeta
   meanBeta <- c(mean(datasetFull$betaA, na.rm=TRUE),mean(datasetFull$betaB, na.rm=TRUE),mean(datasetFull$betaC, na.rm=TRUE),mean(datasetFull$betaD, na.rm=TRUE))
   # meanBias
@@ -42,8 +44,8 @@ sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   MCMSE <- meanBias^2 + MCstddev^2   # alternative lazy calculation
   MCRE <- MCMSE[1]/MCMSE
 
-  sumdat <- rbind(rep(trueValue,4),NSIM,meanBeta, meanBias,meanError, relBias,coverage,stdError,MCstddev,MCMSE,MCRE)
-  names <- c("trueValue","# sims","meanBeta","meanBias","meanError",
+  sumdat <- rbind(rep(trueValue,4),NSIM,fail, meanBeta, meanBias,meanError, relBias,coverage,stdError,MCstddev,MCMSE,MCRE)
+  names <- c("trueValue","# sims","# invaild","meanBeta","meanBias","meanError",
              "relativeBias","coverage","stdError", "MC standard deviation",'MC MSE',"MC relative efficiency")
   ests <- c("MethodA","MethodB","MethodC","MethodD")
 
