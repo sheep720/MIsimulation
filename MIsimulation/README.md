@@ -4,7 +4,7 @@ MIsimulation
 ============
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/sheep720/MIsimulation.svg?branch=master)](https://travis-ci.com/sheep720/MIsimulation) <!-- badges: end -->
+[![Travis build status](https://travis-ci.com/sheep720/MIsimulation.svg?branch=master)](https://travis-ci.com/sheep720/MIsimulation) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/sheep720/MIsimulation?branch=master&svg=true)](https://ci.appveyor.com/project/sheep720/MIsimulation) <!-- badges: end -->
 
 The goal of MIsimulation is to ...
 
