@@ -18,7 +18,7 @@ sim_MCAR(n, NSIM, missRate, trueValue, cores = 1)
 \item{cores}{the number of cores for parallelization, defalut = 1}
 }
 \value{
-The summary simulation results
+The sumMCARy simulation results
 }
 \description{
 sim_MCAR

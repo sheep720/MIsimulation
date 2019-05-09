@@ -6,41 +6,45 @@
 #' @param trueValue the true value of the parameter
 #' @param cores the number of cores for parallelization, defalut = 1
 #'
-#' @return The summary simulation results
+#' @return The sumMCARy simulation results
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 1)
 #' }
-#' @importFrom stats var
+#' @importFrom stats var na.omit
 sim_MCAR <- function(n, NSIM, missRate, trueValue, cores = 1){
-  S <- NSIM
+  #S <- NSIM
   MCAR_MethodA_Sum <- MCAR_MethodA(n, NSIM, missRate, trueValue, cores)
   MCAR_MethodB_Sum <- MCAR_MethodB(n, NSIM, missRate, trueValue, cores)
   MCAR_MethodC_Sum <- MCAR_MethodC(n, NSIM, missRate, trueValue, cores)
   MCAR_MethodD_Sum <- MCAR_MethodD(n, NSIM, missRate, trueValue, cores)
-  dat <- data.frame(MCAR_MethodA_Sum$betaA, MCAR_MethodB_Sum$betaB, MCAR_MethodC_Sum$betaC, MCAR_MethodD_Sum$betaD)
+  #dat <- data.frame(MCAR_MethodA_Sum$betaA, MCAR_MethodB_Sum$betaB, MCAR_MethodC_Sum$betaC, MCAR_MethodD_Sum$betaD)
   datasetFull <- cbind(MCAR_MethodA_Sum,MCAR_MethodB_Sum,MCAR_MethodC_Sum,MCAR_MethodD_Sum)
-  MCmean <- apply(dat,2,mean)
-  MCbias <- MCmean-trueValue
-  MCrelbias <- MCbias/trueValue
-  MCstddev <- sqrt(apply(dat,2,var))
-  MCMSE <- apply((dat-trueValue)^2,2,mean)
-  #   MCMSE <- MCbias^2 + MCstddev^2   # alternative lazy calculation
-  MCRE <- MCMSE[1]/MCMSE
+  #MCmean <- c(mean(datasetFull$betaA, na.rm=TRUE), apply(dat,2,mean)[-1])
+  #MCbias <- MCmean-trueValue
+  #MCrelbias <- MCbias/trueValue
+  # meanBeta
+  meanBeta <- c(mean(datasetFull$betaA, na.rm=TRUE),mean(datasetFull$betaB, na.rm=TRUE),mean(datasetFull$betaC, na.rm=TRUE),mean(datasetFull$betaD, na.rm=TRUE))
   # meanBias
-  meanBias <- c(mean(datasetFull$meanBiasA),mean(datasetFull$meanBiasB),mean(datasetFull$meanBiasC),mean(datasetFull$meanBiasD))
+  meanBias <- c(mean(datasetFull$meanBiasA, na.rm=TRUE),mean(datasetFull$meanBiasB, na.rm=TRUE),mean(datasetFull$meanBiasC, na.rm=TRUE),mean(datasetFull$meanBiasD, na.rm=TRUE))
   # meanError
-  meanError <- c(mean(datasetFull$meanErrorA),mean(datasetFull$meanErrorB),mean(datasetFull$meanErrorC),mean(datasetFull$meanErrorD))
+  meanError <- c(mean(datasetFull$meanErrorA, na.rm=TRUE),mean(datasetFull$meanErrorB, na.rm=TRUE),mean(datasetFull$meanErrorC, na.rm=TRUE),mean(datasetFull$meanErrorD, na.rm=TRUE))
+  # relativeBias
+  relBias <- meanBias/trueValue
   # coverage
-  coverage <- c(mean(datasetFull$coverA),mean(datasetFull$coverB),mean(datasetFull$coverC),mean(datasetFull$coverD))
+  coverage <- c(mean(datasetFull$coverA, na.rm=TRUE),mean(datasetFull$coverB, na.rm=TRUE),mean(datasetFull$coverC, na.rm=TRUE),mean(datasetFull$coverD, na.rm=TRUE))
   # stdError
-  stdError <- c(mean(datasetFull$sdA),mean(datasetFull$sdB),mean(datasetFull$sdC),mean(datasetFull$sdD))
-  sumdat <- rbind(rep(trueValue,4),S,MCmean,MCbias,MCrelbias,MCstddev,MCMSE,
-                  MCRE,meanBias,meanError,coverage,stdError)
-  names <- c("true value","# sims","MC mean","MC bias","MC relative bias",
-             "MC standard deviation","MC MSE","MC relative efficiency","meanBias","meanError","coverage","stdError")
+  stdError <- c(mean(datasetFull$sdA, na.rm=TRUE),mean(datasetFull$sdB, na.rm=TRUE),mean(datasetFull$sdC, na.rm=TRUE),mean(datasetFull$sdD, na.rm=TRUE))
+  MCstddev <- c(var(na.omit(datasetFull$betaA)), var(na.omit(datasetFull$betaB)),var(na.omit(datasetFull$betaC)),var(na.omit(datasetFull$betaD)))
+  #MCMSE <- apply((dat-trueValue)^2,2,mean)
+  MCMSE <- meanBias^2 + MCstddev^2   # alternative lazy calculation
+  MCRE <- MCMSE[1]/MCMSE
+
+  sumdat <- rbind(rep(trueValue,4),NSIM,meanBeta, meanBias,meanError, relBias,coverage,stdError,MCstddev,MCMSE,MCRE)
+  names <- c("trueValue","# sims","meanBeta","meanBias","meanError",
+             "relativeBias","coverage","stdError", "MC standard deviation",'MC MSE',"MC relative efficiency")
   ests <- c("MethodA","MethodB","MethodC","MethodD")
 
   dimnames(sumdat) <- list(names,ests)

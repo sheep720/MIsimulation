@@ -6,7 +6,7 @@ Author: Mingyang Li <mingyli@pennmedicine.upenn.edu>
 Maintainer: Mingyang Li <mingyli@pennmedicine.upenn.edu>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-Imports: stats, MASS, mice, parallel, microbenchmark, methods
+Imports: stats, MASS, mice, parallel, methods
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
