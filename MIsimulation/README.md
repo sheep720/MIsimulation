@@ -3,47 +3,54 @@
 MIsimulation
 ============
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.com/sheep720/MIsimulation.svg?branch=master)](https://travis-ci.com/sheep720/MIsimulation) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/sheep720/MIsimulation?branch=master&svg=true)](https://ci.appveyor.com/project/sheep720/MIsimulation) <!-- badges: end -->
-
-The goal of MIsimulation is to ...
+The goal of MIsimulation is to replicate and extend the simulation study in Kontopantelis and Evangelos (2017)
 
 Installation
 ------------
 
-You can install the released version of MIsimulation from [CRAN](https://CRAN.R-project.org) with:
+You can install the source package MIsimulation by changing the path to file with:
 
 ``` r
-install.packages("MIsimulation")
+install.packages("/Users/mingyang/MIsimulation_0.1.0.tar.gz", repos = NULL, type="source")
 ```
 
 Example
 -------
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example on how to replicate the results in table 2 in Kontopantelis and Evangelos (2017):
 
 ``` r
 library(MIsimulation)
-## basic example code
+## 1000 samples generated in each iteration with missing rate 0.2 for each variable under MCAR assumption 
+## with 10 iterations
+sim_MCAR(n = 1000, NSIM = 10, missRate = 0.2, trueValue = log(2), cores = 3)
+#>                         MethodA  MethodB  MethodC  MethodD
+#> trueValue               0.69315  0.69315  0.69315  0.69315
+#> # sims                 10.00000 10.00000 10.00000 10.00000
+#> # invalid               0.00000  0.00000  0.00000  0.00000
+#> meanBeta                0.66179  0.77400  0.58864  0.60690
+#> meanBias               -0.03136  0.08086 -0.10451 -0.08625
+#> meanError               0.15436  0.19719  0.17106  0.14577
+#> relativeBias           -0.04524  0.11665 -0.15077 -0.12443
+#> coverage                1.00000  1.00000  1.00000  1.00000
+#> stdError                0.26337  0.23588  0.23379  0.25115
+#> MC standard deviation   0.04087  0.04436  0.03274  0.04167
+#> MC MSE                  0.00265  0.00851  0.01199  0.00918
+#> MC relative efficiency  1.00000  0.31205  0.22130  0.28928
+## 1000 samples generated in each iteration with missing rate 0.2 for each variable under MAR assumption 
+## with 10 iterations
+sim_MAR(n = 1000, NSIM = 10, missRate = 0.4, trueValue = log(2), cores = 3)
+#>                         MethodA  MethodB  MethodC  MethodD
+#> trueValue               0.69315  0.69315  0.69315  0.69315
+#> # sims                 10.00000 10.00000 10.00000 10.00000
+#> # invalid               0.00000  0.00000  0.00000  0.00000
+#> meanBeta                0.58138  0.84987  0.62327  0.67667
+#> meanBias               -0.11177  0.15672 -0.06988 -0.01648
+#> meanError               0.29015  0.26366  0.29840  0.23886
+#> relativeBias           -0.16125  0.22610 -0.10082 -0.02377
+#> coverage                0.90000  0.90000  0.80000  1.00000
+#> stdError                0.35719  0.27400  0.29346  0.32418
+#> MC standard deviation   0.13767  0.10389  0.16819  0.08701
+#> MC MSE                  0.03145  0.03535  0.03317  0.00784
+#> MC relative efficiency  1.00000  0.88944  0.94794  4.00994
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
