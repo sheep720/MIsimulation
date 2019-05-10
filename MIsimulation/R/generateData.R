@@ -1,4 +1,4 @@
-#' @title generateData
+#' @title Generate Full Dataset
 #' @description Generate the original data for simulation, the binary outcome is generated from logistic regression model
 #' @param n the sample size in each simulated dataset
 #'

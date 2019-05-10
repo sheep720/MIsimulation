@@ -2,7 +2,7 @@
 % Please edit documentation in R/MCAR.R
 \name{MCAR}
 \alias{MCAR}
-\title{MCAR}
+\title{Generate missing values in the dataset under MCAR}
 \usage{
 MCAR(missRate, full)
 }
@@ -15,5 +15,5 @@ MCAR(missRate, full)
 the simulated MCAR dataset
 }
 \description{
-Generate missing value in the dataset under MCAR
+Generate missing values in the dataset under MCAR
 }

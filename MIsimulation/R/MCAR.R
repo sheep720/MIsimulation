@@ -1,4 +1,4 @@
-#' @title MCAR
+#' @title Generate missing values in the dataset under MCAR
 #'
 #' @description Generate missing values in the dataset under MCAR
 #'

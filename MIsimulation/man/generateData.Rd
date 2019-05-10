@@ -2,7 +2,7 @@
 % Please edit documentation in R/generateData.R
 \name{generateData}
 \alias{generateData}
-\title{generateData}
+\title{Generate Full Dataset}
 \usage{
 generateData(n)
 }

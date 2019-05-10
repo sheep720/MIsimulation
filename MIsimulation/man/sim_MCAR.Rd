@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_MCAR.R
 \name{sim_MCAR}
 \alias{sim_MCAR}
-\title{sim_MCAR}
+\title{Comparing the Performance of Method A-D (MCAR)}
 \usage{
 sim_MCAR(n, NSIM, missRate, trueValue, cores = 1)
 }
@@ -23,7 +23,7 @@ The summary simulation results
 \description{
 This function will call the function \code{MCAR_MethodA}, \code{MCAR_MethodB}, \code{MCAR_MethodC} and \code{MCAR_MethodD}
 to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
-relative bias, coverage, mean square error, standard deviation
+relative bias, coverage, mean square error, standard deviation to compare the methods
 }
 \examples{
 \dontrun{

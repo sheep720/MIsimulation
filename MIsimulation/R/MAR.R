@@ -1,4 +1,4 @@
-#' @title MAR
+#' @title Generate missing values in the dataset under MAR
 #'
 #' @description Generate missing values in the dataset under MAR
 #'

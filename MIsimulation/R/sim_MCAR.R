@@ -1,4 +1,4 @@
-#' @title sim_MCAR
+#' @title Comparing the Performance of Method A-D (MCAR)
 #' @description This function will call the function \code{MCAR_MethodA}, \code{MCAR_MethodB}, \code{MCAR_MethodC} and \code{MCAR_MethodD}
 #' to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
 #' relative bias, coverage, mean square error, standard deviation to compare the methods

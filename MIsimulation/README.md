@@ -28,15 +28,15 @@ sim_MCAR(n = 1000, NSIM = 10, missRate = 0.2, trueValue = log(2), cores = 3)
 #> trueValue               0.69315  0.69315  0.69315  0.69315
 #> # sims                 10.00000 10.00000 10.00000 10.00000
 #> # invalid               0.00000  0.00000  0.00000  0.00000
-#> meanBeta                0.66179  0.77400  0.58864  0.60690
-#> meanBias               -0.03136  0.08086 -0.10451 -0.08625
-#> meanError               0.15436  0.19719  0.17106  0.14577
-#> relativeBias           -0.04524  0.11665 -0.15077 -0.12443
+#> meanBeta                0.63083  0.68204  0.84081  0.74217
+#> meanBias               -0.06231 -0.01111  0.14766  0.04902
+#> meanError               0.24803  0.16606  0.20225  0.24458
+#> relativeBias           -0.08990 -0.01603  0.21303  0.07072
 #> coverage                1.00000  1.00000  1.00000  1.00000
-#> stdError                0.26337  0.23588  0.23379  0.25115
-#> MC standard deviation   0.04087  0.04436  0.03274  0.04167
-#> MC MSE                  0.00265  0.00851  0.01199  0.00918
-#> MC relative efficiency  1.00000  0.31205  0.22130  0.28928
+#> stdError                0.26487  0.23658  0.23856  0.26621
+#> MC standard deviation   0.08682  0.04725  0.03761  0.09413
+#> MC MSE                  0.01142  0.00236  0.02322  0.01126
+#> MC relative efficiency  1.00000  4.84763  0.49186  1.01398
 ## 1000 samples generated in each iteration with missing rate 0.2 for each variable under MAR assumption 
 ## with 10 iterations
 sim_MAR(n = 1000, NSIM = 10, missRate = 0.4, trueValue = log(2), cores = 3)
@@ -44,13 +44,13 @@ sim_MAR(n = 1000, NSIM = 10, missRate = 0.4, trueValue = log(2), cores = 3)
 #> trueValue               0.69315  0.69315  0.69315  0.69315
 #> # sims                 10.00000 10.00000 10.00000 10.00000
 #> # invalid               0.00000  0.00000  0.00000  0.00000
-#> meanBeta                0.58138  0.84987  0.62327  0.67667
-#> meanBias               -0.11177  0.15672 -0.06988 -0.01648
-#> meanError               0.29015  0.26366  0.29840  0.23886
-#> relativeBias           -0.16125  0.22610 -0.10082 -0.02377
-#> coverage                0.90000  0.90000  0.80000  1.00000
-#> stdError                0.35719  0.27400  0.29346  0.32418
-#> MC standard deviation   0.13767  0.10389  0.16819  0.08701
-#> MC MSE                  0.03145  0.03535  0.03317  0.00784
-#> MC relative efficiency  1.00000  0.88944  0.94794  4.00994
+#> meanBeta                0.86438  0.95434  0.54452  0.72757
+#> meanBias                0.17123  0.26119 -0.14863  0.03442
+#> meanError               0.29023  0.27666  0.25723  0.27069
+#> relativeBias            0.24703  0.37682 -0.21443  0.04966
+#> coverage                1.00000  1.00000  1.00000  0.80000
+#> stdError                0.35179  0.26985  0.30251  0.29128
+#> MC standard deviation   0.08770  0.04055  0.08183  0.13328
+#> MC MSE                  0.03701  0.06986  0.02879  0.01895
+#> MC relative efficiency  1.00000  0.52975  1.28569  1.95330
 ```

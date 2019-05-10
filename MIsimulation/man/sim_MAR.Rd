@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_MAR.R
 \name{sim_MAR}
 \alias{sim_MAR}
-\title{sim_MAR}
+\title{Comparing the Performance of Method A-D (MAR)}
 \usage{
 sim_MAR(n, NSIM, missRate, trueValue, cores = 1)
 }
@@ -23,7 +23,7 @@ The summary simulation results
 \description{
 This function will call the function \code{MAR_MethodA}, \code{MAR_MethodB}, \code{MAR_MethodC} and \code{MAR_MethodD}
 to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
-relative bias, coverage, mean square error, standard deviation
+relative bias, coverage, mean square error, standard deviation to compare the methods
 }
 \examples{
 \dontrun{

@@ -6,6 +6,7 @@
 #' @param dataset the dataset for analysis
 #'
 #' @return the summary of the model fit
+#' @export
 #'
 #' @importFrom stats glm complete.cases
 #' @importFrom methods is
