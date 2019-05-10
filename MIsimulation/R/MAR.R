@@ -1,5 +1,6 @@
-# MAR
-#' @title Generate MAR dataset
+#' @title MAR
+#'
+#' @description Generate missing values in the dataset under MAR
 #'
 #' @param missRate the missing rate for each variable
 #' @param full the orignial dataset
