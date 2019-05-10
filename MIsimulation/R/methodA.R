@@ -1,7 +1,8 @@
 # analysis methods
 # method A: complete case analysis
-#' @title methodA: complete case analysis
+#' @title methodA
 #'
+#' @description Method A used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: complete case analysis
 #' @param dataset the dataset for analysis
 #'
 #' @return the summary of the model fit

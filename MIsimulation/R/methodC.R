@@ -1,6 +1,8 @@
 # analysis methods
-# method C: no outcome imputation, outcome included in mi model
-#' @title method C: no outcome imputation, outcome included in mi model
+# method C
+#' @title method C
+#'
+#' @description Method C used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: no outcome imputation, outcome included in mi model
 #'
 #' @param dataset the dataset for analysis
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/methodC.R
 \name{methodC}
 \alias{methodC}
-\title{method C: no outcome imputation, outcome included in mi model}
+\title{method C}
 \usage{
 methodC(dataset)
 }
@@ -13,5 +13,5 @@ methodC(dataset)
 the summary of the model fit
 }
 \description{
-method C: no outcome imputation, outcome included in mi model
+Method C used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: no outcome imputation, outcome included in mi model
 }

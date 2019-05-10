@@ -1,12 +1,14 @@
-#' sim_MCAR
-#'
+#' @title sim_MCAR
+#' @description This function will call the function \code{MCAR_MethodA}, \code{MCAR_MethodB}, \code{MCAR_MethodC} and \code{MCAR_MethodD}
+#' to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
+#' relative bias, coverage, mean square error, standard deviation to compare the methods
 #' @param n sample size in each simulated dataset
 #' @param NSIM the number of simulation runs
 #' @param missRate the missing rate
 #' @param trueValue the true value of the parameter
 #' @param cores the number of cores for parallelization, defalut = 1
 #'
-#' @return The sumMCARy simulation results
+#' @return The summary simulation results
 #' @export
 #'
 #' @examples
@@ -15,7 +17,6 @@
 #' }
 #' @importFrom stats var na.omit
 sim_MCAR <- function(n, NSIM, missRate, trueValue, cores = 1){
-  #S <- NSIM
   MCAR_MethodA_Sum <- MCAR_MethodA(n, NSIM, missRate, trueValue, cores)
   MCAR_MethodB_Sum <- MCAR_MethodB(n, NSIM, missRate, trueValue, cores)
   MCAR_MethodC_Sum <- MCAR_MethodC(n, NSIM, missRate, trueValue, cores)
@@ -45,7 +46,7 @@ sim_MCAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   MCRE <- MCMSE[1]/MCMSE
 
   sumdat <- rbind(rep(trueValue,4),NSIM,fail,meanBeta, meanBias,meanError, relBias,coverage,stdError,MCstddev,MCMSE,MCRE)
-  names <- c("trueValue","# sims","# invaild","meanBeta","meanBias","meanError",
+  names <- c("trueValue","# sims","# invalid","meanBeta","meanBias","meanError",
              "relativeBias","coverage","stdError", "MC standard deviation",'MC MSE',"MC relative efficiency")
   ests <- c("MethodA","MethodB","MethodC","MethodD")
 

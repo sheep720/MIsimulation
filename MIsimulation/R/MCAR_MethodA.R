@@ -1,6 +1,6 @@
 # MCAR
-#' MCAR_MethodA
-#'
+#' @title MCAR_MethodA
+#' @description This function will call the \code{generateData} and \code{MCAR} function to generate the dataset under MCAR with certain missing rate,use method A for analysis, repeate for 1000 iterations and return the beta, betaSE, meanBias, meanError, cover for each iteratio
 #' @param n sample size in each simulated dataset
 #' @param NSIM the number of simulation runs
 #' @param missRate the missing rate

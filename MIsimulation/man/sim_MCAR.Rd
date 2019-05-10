@@ -18,10 +18,12 @@ sim_MCAR(n, NSIM, missRate, trueValue, cores = 1)
 \item{cores}{the number of cores for parallelization, defalut = 1}
 }
 \value{
-The sumMCARy simulation results
+The summary simulation results
 }
 \description{
-sim_MCAR
+This function will call the function \code{MCAR_MethodA}, \code{MCAR_MethodB}, \code{MCAR_MethodC} and \code{MCAR_MethodD}
+to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
+relative bias, coverage, mean square error, standard deviation
 }
 \examples{
 \dontrun{

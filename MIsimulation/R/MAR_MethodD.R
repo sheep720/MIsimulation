@@ -1,5 +1,5 @@
-#' MAR_MethodD
-#'
+#' @title MAR_MethodD
+#' @description This function will call the \code{generateData} and \code{MAR} function to generate the dataset under MAR with certain missing rate,use method D for analysis, repeate for 1000 iterations and return the beta, betaSE, meanBias, meanError, cover for each iteration
 #' @param n sample size in each simulated dataset
 #' @param NSIM the number of simulation runs
 #' @param missRate the missing rate

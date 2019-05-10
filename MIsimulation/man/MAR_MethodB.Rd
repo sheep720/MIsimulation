@@ -21,5 +21,5 @@ MAR_MethodB(n, NSIM, missRate, trueValue, cores = 1)
 the beta, betaSE, meanBias, meanError, cover for methodB
 }
 \description{
-MAR_MethodB
+This function will call the \code{generateData} and \code{MAR} function to generate the dataset under MAR with certain missing rate,use method B for analysis, repeate for 1000 iterations and return the beta, betaSE, meanBias, meanError, cover for each iteration
 }

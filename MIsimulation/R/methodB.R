@@ -1,7 +1,8 @@
 # analysis methods
 # method B: no outcome imputation, not included in mi model
-#' @title method B: no outcome imputation, not included in mi model
+#' @title method B
 #'
+#' @description Method B used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: no outcome imputation, not included in mi model
 #' @param dataset the dataset for analysis
 #'
 #' @return the summary of the model fit

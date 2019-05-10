@@ -1,6 +1,8 @@
 # analysis methods
 # method D: outcome imputed and included in mi model
-#' @title method D: outcome imputed and included in mi model
+#' @title method D
+#'
+#' @description Method D used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: outcome imputed and included in mi model
 #'
 #' @param dataset the dataset for analysis
 #'

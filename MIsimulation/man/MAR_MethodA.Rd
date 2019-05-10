@@ -9,7 +9,7 @@ MAR_MethodA(n, NSIM, missRate, trueValue, cores = 1)
 \arguments{
 \item{n}{sample size in each simulated dataset}
 
-\item{NSIM}{the number of simulation runs}
+\item{NSIM}{the number of simulation iterations}
 
 \item{missRate}{the missing rate}
 
@@ -21,5 +21,5 @@ MAR_MethodA(n, NSIM, missRate, trueValue, cores = 1)
 the beta, betaSE, meanBias, meanError, cover for methodA
 }
 \description{
-MAR_MethodA
+This function will call the \code{generateData} and \code{MAR} function to generate the dataset under MAR with certain missing rate,use method A for analysis, repeate for 1000 iterations and return the beta, betaSE, meanBias, meanError, cover for each iteration
 }

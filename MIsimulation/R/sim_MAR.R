@@ -1,5 +1,7 @@
-#' sim_MAR
-#'
+#' @title sim_MAR
+#' @description This function will call the function \code{MAR_MethodA}, \code{MAR_MethodB}, \code{MAR_MethodC} and \code{MAR_MethodD}
+#' to generate the beta coeffients for each iteration and return the summarized simulation results including mean bias, mean error,
+#' relative bias, coverage, mean square error, standard deviation to compare the methods
 #' @param n sample size in each simulated dataset
 #' @param NSIM the number of simulation runs
 #' @param missRate the missing rate
@@ -15,7 +17,6 @@
 #' }
 #' @importFrom stats var na.omit
 sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
-  #S <- NSIM
   MAR_MethodA_Sum <- MAR_MethodA(n, NSIM, missRate, trueValue, cores)
   MAR_MethodB_Sum <- MAR_MethodB(n, NSIM, missRate, trueValue, cores)
   MAR_MethodC_Sum <- MAR_MethodC(n, NSIM, missRate, trueValue, cores)
@@ -45,7 +46,7 @@ sim_MAR <- function(n, NSIM, missRate, trueValue, cores = 1){
   MCRE <- MCMSE[1]/MCMSE
 
   sumdat <- rbind(rep(trueValue,4),NSIM,fail, meanBeta, meanBias,meanError, relBias,coverage,stdError,MCstddev,MCMSE,MCRE)
-  names <- c("trueValue","# sims","# invaild","meanBeta","meanBias","meanError",
+  names <- c("trueValue","# sims","# invalid","meanBeta","meanBias","meanError",
              "relativeBias","coverage","stdError", "MC standard deviation",'MC MSE',"MC relative efficiency")
   ests <- c("MethodA","MethodB","MethodC","MethodD")
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/methodB.R
 \name{methodB}
 \alias{methodB}
-\title{method B: no outcome imputation, not included in mi model}
+\title{method B}
 \usage{
 methodB(dataset)
 }
@@ -13,5 +13,5 @@ methodB(dataset)
 the summary of the model fit
 }
 \description{
-method B: no outcome imputation, not included in mi model
+Method B used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: no outcome imputation, not included in mi model
 }

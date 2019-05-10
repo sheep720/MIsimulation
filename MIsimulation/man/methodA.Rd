@@ -2,7 +2,7 @@
 % Please edit documentation in R/methodA.R
 \name{methodA}
 \alias{methodA}
-\title{methodA: complete case analysis}
+\title{methodA}
 \usage{
 methodA(dataset)
 }
@@ -13,5 +13,5 @@ methodA(dataset)
 the summary of the model fit
 }
 \description{
-methodA: complete case analysis
+Method A used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: complete case analysis
 }

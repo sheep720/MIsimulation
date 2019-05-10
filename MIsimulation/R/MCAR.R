@@ -1,4 +1,6 @@
-#' @title Generate MCAR dataset
+#' @title MCAR
+#'
+#' @description Generate missing values in the dataset under MCAR
 #'
 #' @param missRate the missing rate for each variable
 #' @param full the orignial true dataset

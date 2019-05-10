@@ -21,5 +21,5 @@ MCAR_MethodA(n, NSIM, missRate, trueValue, cores = 1)
 the beta, betaSE, meanBias, meanError, cover for methodA
 }
 \description{
-MCAR_MethodA
+This function will call the \code{generateData} and \code{MCAR} function to generate the dataset under MCAR with certain missing rate,use method A for analysis, repeate for 1000 iterations and return the beta, betaSE, meanBias, meanError, cover for each iteratio
 }

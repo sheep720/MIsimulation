@@ -2,7 +2,7 @@
 % Please edit documentation in R/generateData.R
 \name{generateData}
 \alias{generateData}
-\title{Generate the original data for simulation}
+\title{generateData}
 \usage{
 generateData(n)
 }
@@ -13,5 +13,5 @@ generateData(n)
 the simulated dataset according to the settings in Kontopantelis and Evangelos (2017)
 }
 \description{
-Generate the original data for simulation
+Generate the original data for simulation, the binary outcome is generated from logistic regression model
 }

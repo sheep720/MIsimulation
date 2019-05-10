@@ -2,7 +2,7 @@
 % Please edit documentation in R/methodD.R
 \name{methodD}
 \alias{methodD}
-\title{method D: outcome imputed and included in mi model}
+\title{method D}
 \usage{
 methodD(dataset)
 }
@@ -13,5 +13,5 @@ methodD(dataset)
 the summary of the model fit
 }
 \description{
-method D: outcome imputed and included in mi model
+Method D used in Kontopantelis and Evangelos (2017) for anaylsis incomplete data: outcome imputed and included in mi model
 }

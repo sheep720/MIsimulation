@@ -2,7 +2,7 @@
 % Please edit documentation in R/MAR.R
 \name{MAR}
 \alias{MAR}
-\title{Generate MAR dataset}
+\title{MAR}
 \usage{
 MAR(missRate, full)
 }
@@ -15,5 +15,5 @@ MAR(missRate, full)
 the simulated MCAR dataset
 }
 \description{
-Generate MAR dataset
+Generate missing value in the dataset under MAR
 }

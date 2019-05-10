@@ -1,10 +1,11 @@
 ---
-title: "Reproduce"
+title: "Introduction to MIsimulation"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Reproduce}
+  %\VignetteIndexEntry{Introduction to MIsimulation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: bibliography.bib
 ---
 
 ```{r, include = FALSE}
@@ -14,6 +15,45 @@ knitr::opts_chunk$set(
 )
 ```
 
+### Installation
+
+You can install the source package ```MIsimulation``` by changing the path to file with:
+``` r
+install.packages("/Users/mingyang/MIsimulation_0.1.0.tar.gz", repos = NULL, type="source")
+```
 ```{r setup}
 library(MIsimulation)
 ```
+
+### Introduction
+The goal of the ```MIsimulation``` package is to replicate and extend the simulation study in @kontopantelis2017outcome. In the paper, datasets were generated under different settings including three mechanisms of missingness (completely at random; at random; not at random) with 20–80% missing data and different sample sizes (1000 or 10000 cases) and 8 methods for analysis were compared on mean absolute error, bias, coverage and power. 
+
+In the ```MIsimulation``` package, the datasets were generated under MCAR or MAR with 20–80% missing data. Four of 8 methods were compared on mean bias, mean error, relative bias, coverage, mean square error (MSE), standard deviation over 1000 datasets for each scenario. We extented the simulation by including the evaluation of the methods on relative bias, standard deviation, MSE and relative efficiency. The simulation results for dataset with 1000 cases were provided.  
+
+### Functions
+The ```MIsimulation``` package includes the following functions:
+
+ * ```generateData(n)```: Generate the original data for simulation
+ * ```MAR(missRate, dataset)``` and ```MCAR(missRate, dataset)```: Generate missing values in the dataset under MAR and MCAR assumptions
+ * ```methodA(dataset)```, ```methodB(dataset)```, ```methodC(dataset)```, ```methodD(dataset)```: Four methods used in the paper. Specifically, method A is complete case analysis and method B-D used multiple imputation by chained equation with different imputation stategies. Method B: no outcome imputation, outcome not included in MI model; Method C: no outcome imputation, outcome included in MI model; Method D: outcome imputed and included in MI model
+ * ```MAR_MethodA(n, NSIM, missRate, trueValue, cores = 1)``` will call the ```generateData(n)``` and ```MAR(missRate, dataset)``` function to generate the dataset under MAR with certain missing rate, use method A for analysis, repeate for ```NSIM``` iterations and return the beta, betaSE, meanBias, meanError, coverage for treatment in each iteration. ```cores``` is the option to parallel. Defualt value for ```cores``` is 1. Similar for ```MAR_MethodB```, ```MAR_MethodC```, ```MAR_MethodD```, ```MCAR_MethodA```, ```MCAR_MethodB```, ```MCAR_MethodC```, ```MCAR_MethodD```.
+ * ```sim_MAR(n, NSIM, missRate, trueValue, cores = 1)``` and ```sim_MCAR(n, NSIM, missRate, trueValue, cores = 1)``` are the methods we used to generate the simlation results. They will call the previous functions to calculate the beta coeffients for  in each iteration and return the summarized simulation results including mean bias, mean error, relative bias, coverage, mean square error, standard deviation to compare the methods.
+
+### Reproduce the results
+
+To reproduce the simulation results in the report, we could use the ```sim_MAR``` and ```sim_MCAR``` functions and pass the arguments including the sample size in each simulation dataset, the number of iterations, the missing rate, true value of the estimated coefficient and the number of the cores used for parallelzation.
+
+```{r, eval=FALSE}
+sim_MAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 8)
+sim_MAR(n = 1000, NSIM = 1000, missRate = 0.4, trueValue = log(2), cores = 8)
+sim_MAR(n = 1000, NSIM = 1000, missRate = 0.6, trueValue = log(2), cores = 8)
+sim_MAR(n = 1000, NSIM = 1000, missRate = 0.8, trueValue = log(2), cores = 8)
+sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.2, trueValue = log(2), cores = 8)
+sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.4, trueValue = log(2), cores = 8)
+sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.6, trueValue = log(2), cores = 8)
+sim_MCAR(n = 1000, NSIM = 1000, missRate = 0.8, trueValue = log(2), cores = 8)
+```
+
+
+### References
+  
